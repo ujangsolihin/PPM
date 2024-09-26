@@ -109,7 +109,7 @@ const CoffeeShopLayout: React.FC = () => {
                 paddingVertical: 13,
                 paddingHorizontal: 23,
                 marginBottom: 24,
-                overflow: 'hidden', //  untuk memastikan border radius terlihat
+                overflow: 'hidden', 
               }}>
               <View
                 style={{
@@ -181,7 +181,7 @@ const CoffeeShopLayout: React.FC = () => {
               </View>
             </ScrollView>
 
-            {/* Coffee Items 1 */}
+            {/* Coffee Items 1,2 */}
             <View style={{flexDirection: 'row'}}>
               <View
                 style={{
@@ -372,7 +372,7 @@ const CoffeeShopLayout: React.FC = () => {
                 </View>
               </View>
             </View>
-            {/* coffe item 2 */}
+            {/* coffe item 3,4 */}
             <View style={{flexDirection: 'row'}}>
               <View
                 style={{
@@ -566,7 +566,7 @@ const CoffeeShopLayout: React.FC = () => {
               </View>
             </View>
 
-            {/* coffe item 2 */}
+            {/* coffe item 5,6 */}
             <View style={{flexDirection: 'row'}}>
               <View
                 style={{
