@@ -1,769 +1,262 @@
 import React from 'react';
 import {
-  SafeAreaView,
-  View,
-  ScrollView,
+  StyleSheet,
   Text,
+  View,
   Image,
-  ImageBackground,
-  ImageBackgroundComponent,
-  ImageBackgroundBase,
   TextInput,
+  ScrollView,
+  TouchableOpacity,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {FontAwesome} from '@expo/vector-icons';
 
-const CoffeeShopLayout: React.FC = () => {
+export default function App() {
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: '#FFFFFF',
-      }}>
-      <ScrollView
-        style={{
-          flex: 1,
-          backgroundColor: '#F8F8F8',
-        }}>
+    <ScrollView style={styles.container}>
+      <View style={styles.location}>
         <View>
-          <LinearGradient
-            start={{x: 1, y: -0}}
-            end={{x: -0, y: 1}}
-            colors={['#131313', '#303030']}
-            style={{
-              paddingVertical: 40,
-              paddingHorizontal: 30,
-              borderBottomLeftRadius: 16,
-              borderBottomRightRadius: 16,
-            }}>
-            {/* Header Location */}
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginBottom: 24,
-              }}>
-              <View style={{flex: 1, marginRight: 9}}>
-                <Text
-                  style={{
-                    color: '#B6B6B6',
-                    fontSize: 12,
-                    marginBottom: 5,
-                  }}>
-                  {'Location'}
-                </Text>
-                <Text
-                  style={{
-                    color: '#DDDDDD',
-                    fontSize: 14,
-                    fontWeight: 'bold',
-                  }}>
-                  {'Bojong Kawung, Sukabumi '}
-                </Text>
-              </View>
-              <Image
-                source={require('./source/image/USO.jpg')}
-                resizeMode={'stretch'}
-                style={{
-                  borderRadius: 14,
-                  width: 44,
-                  height: 44,
-                }}
-              />
-            </View>
-
-            {/* Search Bar */}
-            <View
-              style={{
-                backgroundColor: '#FFFAFA',
-                borderRadius: 16,
-                paddingVertical: 12,
-                paddingHorizontal: 16,
-                marginBottom: 24,
-                width: '100%',
-                height: '5%',
-
-                alignSelf: 'center',
-              }}>
-              <TextInput
-                style={{
-                  color: '#000000',
-                  fontSize: 14,
-                  justifyContent: 'space-evenly',
-                  textAlign: 'justify',
-                  flex: 1,
-                }}
-                placeholder="Search coffee"
-                placeholderTextColor="#A6A6A6"
-                onFocus={() => {}}
-              />
-            </View>
-
-            {/* Promo Section */}
-
-            <ImageBackground
-              source={{
-                uri: 'https://images.unsplash.com/photo-1550948309-0d8983dbdcc3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-              }}
-              style={{
-                borderRadius: 16,
-                paddingVertical: 13,
-                paddingHorizontal: 23,
-                marginBottom: 24,
-                overflow: 'hidden', 
-              }}>
-              <View
-                style={{
-                  width: 70,
-                  height: 30,
-                  alignItems: 'center',
-                  backgroundColor: '#EC5050',
-                  borderRadius: 8,
-                  paddingVertical: 8,
-                  marginBottom: 16,
-                }}>
-                <Text
-                  style={{
-                    color: '#FFFFFF',
-                    fontSize: 12,
-                    fontWeight: 'bold',
-                  }}>
-                  {'Promo'}
-                </Text>
-              </View>
-              <Text
-                style={{
-                  color: '#FFFFFF',
-                  fontSize: 32,
-                  fontWeight: 'bold',
-                  textAlign: 'left',
-                }}>
-                {'Buy one get one FREE'}
-              </Text>
-            </ImageBackground>
-
-            {/* Coffee Options */}
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              style={{marginBottom: 24}}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                }}>
-                {[
-                  'Cappuccino',
-                  'Machiato',
-                  'Latte',
-                  'Espresso',
-                  'kapal api',
-                ].map((item, index) => (
-                  <View
-                    key={index}
-                    style={{
-                      flex: 1,
-                      alignItems: 'center',
-                      backgroundColor: index === 0 ? '#C67C4E' : '#FFFFFF',
-                      borderRadius: 12,
-                      paddingVertical: 14,
-                      paddingHorizontal: 16,
-                      marginRight: 8,
-                    }}>
-                    <Text
-                      style={{
-                        color: index === 0 ? '#FFFFFF' : '#2F4B4E',
-                        fontSize: 14,
-                        fontWeight: index === 0 ? 'bold' : 'normal',
-                      }}>
-                      {item}
-                    </Text>
-                  </View>
-                ))}
-              </View>
-            </ScrollView>
-
-            {/* Coffee Items 1,2 */}
-            <View style={{flexDirection: 'row'}}>
-              <View
-                style={{
-                  flex: 1,
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 16,
-                  paddingVertical: 4,
-                  paddingHorizontal: 12,
-                  marginRight: 8,
-                }}>
-                <ImageBackground
-                  source={{
-                    uri: 'https://images.unsplash.com/photo-1550948309-0d8983dbdcc3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                  }}
-                  resizeMode={'stretch'}
-                  imageStyle={{borderRadius: 16}}
-                  style={{height: 132, marginBottom: 14}}>
-                  <View
-                    style={{
-                      width: 51,
-                      height: 25,
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#00000026',
-                      borderTopLeftRadius: 16,
-                      borderBottomRightRadius: 16,
-                      paddingVertical: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{
-                        width: 15,
-                        height: 15,
-                        marginRight: 2,
-                      }}
-                    />
-                    <Text
-                      style={{
-                        color: '#FFFFFF',
-                        fontSize: 8,
-                        fontWeight: 'bold',
-                      }}>
-                      {'4.8'}
-                    </Text>
-                  </View>
-                </ImageBackground>
-                <Text
-                  style={{
-                    color: '#2F2D2C',
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                    marginBottom: 9,
-                  }}>
-                  {'Cappuccino'}
-                </Text>
-                <Text
-                  style={{
-                    color: '#9B9B9B',
-                    fontSize: 12,
-                    marginBottom: 8,
-                  }}>
-                  {'with Chocolate'}
-                </Text>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Text
-                    style={{
-                      color: '#2F4B4E',
-                      fontSize: 18,
-                      fontWeight: 'bold',
-                      marginRight: 4,
-                      flex: 1,
-                    }}>
-                    {'$ 4.53'}
-                  </Text>
-                  <View
-                    style={{
-                      width: 32,
-                      backgroundColor: '#C67C4E',
-                      borderRadius: 10,
-                      paddingHorizontal: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{height: 16, marginTop: 8}}
-                    />
-                  </View>
-                </View>
-              </View>
-
-              <View
-                style={{
-                  flex: 1,
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 16,
-                  paddingVertical: 4,
-                  paddingRight: 12,
-                  marginLeft: 8,
-                }}>
-                <ImageBackground
-                  source={{
-                    uri: 'https://www.amashaamasala.com/wp-content/uploads/2024/06/coffee_its_benefits_898_1_.jpg',
-                  }}
-                  resizeMode={'stretch'}
-                  imageStyle={{borderRadius: 16}}
-                  style={{height: 132, marginBottom: 14, marginLeft: 10}}>
-                  <View
-                    style={{
-                      width: 51,
-                      height: 25,
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#00000026',
-                      borderTopLeftRadius: 16,
-                      borderBottomRightRadius: 16,
-                      paddingVertical: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{
-                        width: 15,
-                        height: 15,
-                        marginRight: 2,
-                      }}
-                    />
-                    <Text
-                      style={{
-                        color: '#FFFFFF',
-                        fontSize: 8,
-                        fontWeight: 'bold',
-                      }}>
-                      {'4.9'}
-                    </Text>
-                  </View>
-                </ImageBackground>
-                <Text
-                  style={{
-                    color: '#2F2D2C',
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                    marginBottom: 9,
-                    marginLeft: 12,
-                  }}>
-                  {'Cappuccino'}
-                </Text>
-                <Text
-                  style={{
-                    color: '#9B9B9B',
-                    fontSize: 12,
-                    marginBottom: 8,
-                    marginLeft: 12,
-                  }}>
-                  {'with Oat Milk'}
-                </Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginLeft: 14,
-                  }}>
-                  <Text
-                    style={{
-                      color: '#2F4B4E',
-                      fontSize: 18,
-                      fontWeight: 'bold',
-                      marginRight: 4,
-                      flex: 1,
-                    }}>
-                    {'$ 5.00'}
-                  </Text>
-                  <View
-                    style={{
-                      width: 32,
-                      backgroundColor: '#C67C4E',
-                      borderRadius: 10,
-                      paddingHorizontal: 8,
-                    }}>
-                    <Image
-                      source={{uri: 'https://i.imgur.com/1tMFzp8.png'}}
-                      resizeMode={'stretch'}
-                      style={{height: 16, marginTop: 8}}
-                    />
-                  </View>
-                </View>
-              </View>
-            </View>
-            {/* coffe item 3,4 */}
-            <View style={{flexDirection: 'row'}}>
-              <View
-                style={{
-                  flex: 1,
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 16,
-                  paddingVertical: 4,
-                  paddingHorizontal: 12,
-                  marginRight: 8,
-                  marginTop: 8,
-                }}>
-                <ImageBackground
-                  source={{
-                    uri: 'https://images.unsplash.com/photo-1550948309-0d8983dbdcc3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                  }}
-                  resizeMode={'stretch'}
-                  imageStyle={{borderRadius: 16}}
-                  style={{height: 132, marginBottom: 14}}>
-                  <View
-                    style={{
-                      width: 51,
-                      height: 25,
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#00000026',
-                      borderTopLeftRadius: 16,
-                      borderBottomRightRadius: 16,
-                      paddingVertical: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{
-                        width: 15,
-                        height: 15,
-                        marginRight: 2,
-                      }}
-                    />
-                    <Text
-                      style={{
-                        color: '#FFFFFF',
-                        fontSize: 8,
-                        fontWeight: 'bold',
-                      }}>
-                      {'4.8'}
-                    </Text>
-                  </View>
-                </ImageBackground>
-                <Text
-                  style={{
-                    color: '#2F2D2C',
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                    marginBottom: 9,
-                  }}>
-                  {'Cappuccino'}
-                </Text>
-                <Text
-                  style={{
-                    color: '#9B9B9B',
-                    fontSize: 12,
-                    marginBottom: 8,
-                  }}>
-                  {'with Chocolate'}
-                </Text>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Text
-                    style={{
-                      color: '#2F4B4E',
-                      fontSize: 18,
-                      fontWeight: 'bold',
-                      marginRight: 4,
-                      flex: 1,
-                    }}>
-                    {'$ 4.53'}
-                  </Text>
-                  <View
-                    style={{
-                      width: 32,
-                      backgroundColor: '#C67C4E',
-                      borderRadius: 10,
-                      paddingHorizontal: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{height: 16, marginTop: 8}}
-                    />
-                  </View>
-                </View>
-              </View>
-
-              <View
-                style={{
-                  flex: 1,
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 16,
-                  paddingVertical: 4,
-                  paddingRight: 12,
-                  marginLeft: 8,
-                  marginTop: 8,
-                }}>
-                <ImageBackground
-                  source={{
-                    uri: 'https://foodzilla.io/dist/images/does-cappuccino-have-caffeine-in-it.jpg',
-                  }}
-                  resizeMode={'stretch'}
-                  imageStyle={{borderRadius: 16}}
-                  style={{height: 132, marginBottom: 14, marginLeft: 10}}>
-                  <View
-                    style={{
-                      width: 51,
-                      height: 25,
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#00000026',
-                      borderTopLeftRadius: 16,
-                      borderBottomRightRadius: 16,
-                      paddingVertical: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{
-                        width: 15,
-                        height: 15,
-                        marginRight: 2,
-                      }}
-                    />
-                    <Text
-                      style={{
-                        color: '#FFFFFF',
-                        fontSize: 8,
-                        fontWeight: 'bold',
-                      }}>
-                      {'4.9'}
-                    </Text>
-                  </View>
-                </ImageBackground>
-                <Text
-                  style={{
-                    color: '#2F2D2C',
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                    marginBottom: 9,
-                    marginLeft: 12,
-                  }}>
-                  {'Cappuccino'}
-                </Text>
-                <Text
-                  style={{
-                    color: '#9B9B9B',
-                    fontSize: 12,
-                    marginBottom: 8,
-                    marginLeft: 12,
-                  }}>
-                  {'with Oat Milk'}
-                </Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginLeft: 14,
-                  }}>
-                  <Text
-                    style={{
-                      color: '#2F4B4E',
-                      fontSize: 18,
-                      fontWeight: 'bold',
-                      marginRight: 4,
-                      flex: 1,
-                    }}>
-                    {'$ 5.00'}
-                  </Text>
-                  <View
-                    style={{
-                      width: 32,
-                      backgroundColor: '#C67C4E',
-                      borderRadius: 10,
-                      paddingHorizontal: 8,
-                    }}>
-                    <Image
-                      source={{uri: 'https://i.imgur.com/1tMFzp8.png'}}
-                      resizeMode={'stretch'}
-                      style={{height: 16, marginTop: 8}}
-                    />
-                  </View>
-                </View>
-              </View>
-            </View>
-
-            {/* coffe item 5,6 */}
-            <View style={{flexDirection: 'row'}}>
-              <View
-                style={{
-                  flex: 1,
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 16,
-                  paddingVertical: 4,
-                  paddingHorizontal: 12,
-                  marginRight: 8,
-                  marginTop: 8,
-                }}>
-                <ImageBackground
-                  source={{
-                    uri: 'https://images.unsplash.com/photo-1550948309-0d8983dbdcc3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                  }}
-                  resizeMode={'stretch'}
-                  imageStyle={{borderRadius: 16}}
-                  style={{height: 132, marginBottom: 14}}>
-                  <View
-                    style={{
-                      width: 51,
-                      height: 25,
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#00000026',
-                      borderTopLeftRadius: 16,
-                      borderBottomRightRadius: 16,
-                      paddingVertical: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{
-                        width: 15,
-                        height: 15,
-                        marginRight: 2,
-                      }}
-                    />
-                    <Text
-                      style={{
-                        color: '#FFFFFF',
-                        fontSize: 8,
-                        fontWeight: 'bold',
-                      }}>
-                      {'4.8'}
-                    </Text>
-                  </View>
-                </ImageBackground>
-                <Text
-                  style={{
-                    color: '#2F2D2C',
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                    marginBottom: 9,
-                  }}>
-                  {'Cappuccino'}
-                </Text>
-                <Text
-                  style={{
-                    color: '#9B9B9B',
-                    fontSize: 12,
-                    marginBottom: 8,
-                  }}>
-                  {'with Chocolate'}
-                </Text>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Text
-                    style={{
-                      color: '#2F4B4E',
-                      fontSize: 18,
-                      fontWeight: 'bold',
-                      marginRight: 4,
-                      flex: 1,
-                    }}>
-                    {'$ 4.53'}
-                  </Text>
-                  <View
-                    style={{
-                      width: 32,
-                      backgroundColor: '#C67C4E',
-                      borderRadius: 10,
-                      paddingHorizontal: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{height: 16, marginTop: 8}}
-                    />
-                  </View>
-                </View>
-              </View>
-
-              <View
-                style={{
-                  flex: 1,
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 16,
-                  paddingVertical: 4,
-                  paddingRight: 12,
-                  marginLeft: 8,
-                  marginTop: 8,
-                }}>
-                <ImageBackground
-                  source={{
-                    uri: 'https://foodzilla.io/dist/images/does-cappuccino-have-caffeine-in-it.jpg',
-                  }}
-                  resizeMode={'stretch'}
-                  imageStyle={{borderRadius: 16}}
-                  style={{height: 132, marginBottom: 14, marginLeft: 10}}>
-                  <View
-                    style={{
-                      width: 51,
-                      height: 25,
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#00000026',
-                      borderTopLeftRadius: 16,
-                      borderBottomRightRadius: 16,
-                      paddingVertical: 8,
-                    }}>
-                    <Image
-                      source={require('./source/image/bintang.png')}
-                      resizeMode={'stretch'}
-                      style={{
-                        width: 15,
-                        height: 15,
-                        marginRight: 2,
-                      }}
-                    />
-                    <Text
-                      style={{
-                        color: '#FFFFFF',
-                        fontSize: 8,
-                        fontWeight: 'bold',
-                      }}>
-                      {'4.9'}
-                    </Text>
-                  </View>
-                </ImageBackground>
-                <Text
-                  style={{
-                    color: '#2F2D2C',
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                    marginBottom: 9,
-                    marginLeft: 12,
-                  }}>
-                  {'Cappuccino'}
-                </Text>
-                <Text
-                  style={{
-                    color: '#9B9B9B',
-                    fontSize: 12,
-                    marginBottom: 8,
-                    marginLeft: 12,
-                  }}>
-                  {'with Oat Milk'}
-                </Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginLeft: 14,
-                  }}>
-                  <Text
-                    style={{
-                      color: '#2F4B4E',
-                      fontSize: 18,
-                      fontWeight: 'bold',
-                      marginRight: 4,
-                      flex: 1,
-                    }}>
-                    {'$ 5.00'}
-                  </Text>
-                  <View
-                    style={{
-                      width: 32,
-                      backgroundColor: '#C67C4E',
-                      borderRadius: 10,
-                      paddingHorizontal: 8,
-                    }}>
-                    <Image
-                      source={{uri: 'https://i.imgur.com/1tMFzp8.png'}}
-                      resizeMode={'stretch'}
-                      style={{height: 16, marginTop: 8}}
-                    />
-                  </View>
-                </View>
-              </View>
-            </View>
-          </LinearGradient>
+          <Text style={styles.locationText}>Location</Text>
+          <Text style={styles.locationName}>jampang ciemas</Text>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+        <Image
+          style={styles.profileImage}
+          source={require('./source/image/USO.jpg')}
+        />
+      </View>
+      <TextInput
+        style={styles.searchBar}
+        placeholder="Search coffee"
+        placeholderTextColor="#888"
+      />
+      <View style={styles.promo}>
+        <Image
+          style={styles.promoImage}
+          source={{
+            uri: 'https://images.unsplash.com/photo-1550948309-0d8983dbdcc3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+          }}
+        />
+        <View style={styles.promoBadge}>
+          <Text style={styles.promoBadgeText}>Promo</Text>
+        </View>
+        <Text style={styles.promoText}>Buy one get one FREE</Text>
+      </View>
+      <View style={styles.categories}>
+        <TouchableOpacity
+          style={[styles.categoryButton, styles.activeCategory]}>
+          <Text style={styles.categoryText}>Cappuccino</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryButton}>
+          <Text style={styles.categoryText}>Machiatto</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryButton}>
+          <Text style={styles.categoryText}>Latte</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryButton}>
+          <Text style={styles.categoryText}>Americano</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.products}>
+        <View style={styles.productCard}>
+          <Image
+            source={{
+              uri: 'https://foodzilla.io/dist/images/does-cappuccino-have-caffeine-in-it.jpg',
+            }}
+            style={styles.productImage}
+          />
+          <View style={styles.productInfo}>
+            <View>
+              <Text style={styles.productTitle}>Cappuccino</Text>
+              <Text style={styles.productSubtitle}>with Chocolate</Text>
+              <Text style={styles.productPrice}>$ 4.53</Text>
+            </View>
+            <TouchableOpacity style={styles.addToCartButton}>
+              <Text style={styles.addToCartText}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.productCard}>
+          <Image
+            style={styles.productImage}
+            source={{
+              uri: 'https://foodzilla.io/dist/images/does-cappuccino-have-caffeine-in-it.jpg',
+            }}
+          />
+          <View style={styles.productInfo}>
+            <View>
+              <Text style={styles.productTitle}>Cappuccino</Text>
+              <Text style={styles.productSubtitle}>with Oat Milk</Text>
+              <Text style={styles.productPrice}>$ 3.90</Text>
+            </View>
+            <TouchableOpacity style={styles.addToCartButton}>
+              <Text style={styles.addToCartText}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.productCard}>
+          <Image
+            style={styles.productImage}
+            source={{
+              uri: 'https://foodzilla.io/dist/images/does-cappuccino-have-caffeine-in-it.jpg',
+            }}
+          />
+          <View style={styles.productInfo}>
+            <View>
+              <Text style={styles.productTitle}>Cappuccino</Text>
+              <Text style={styles.productSubtitle}>with Almond Milk</Text>
+              <Text style={styles.productPrice}>$ 4.50</Text>
+            </View>
+            <TouchableOpacity style={styles.addToCartButton}>
+              <Text style={styles.addToCartText}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.productCard}>
+          <Image
+            style={styles.productImage}
+            source={{
+              uri: 'https://foodzilla.io/dist/images/does-cappuccino-have-caffeine-in-it.jpg',
+            }}
+          />
+          <View style={styles.productInfo}>
+            <View>
+              <Text style={styles.productTitle}>Cappuccino</Text>
+              <Text style={styles.productSubtitle}>with Soy Milk</Text>
+              <Text style={styles.productPrice}>$ 4.00</Text>
+            </View>
+            <TouchableOpacity style={styles.addToCartButton}>
+              <Text style={styles.addToCartText}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
   );
-};
+}
 
-export default CoffeeShopLayout;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#1c1c1c',
+    padding: 20,
+  },
+  location: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  locationText: {
+    color: '#888',
+  },
+  locationName: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  profileImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+  },
+  searchBar: {
+    backgroundColor: '#2c2c2c',
+    color: 'white',
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 20,
+  },
+  promo: {
+    position: 'relative',
+    marginBottom: 20,
+  },
+  promoImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+  },
+  promoBadge: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    backgroundColor: 'red',
+    padding: 5,
+    borderRadius: 5,
+  },
+  promoBadgeText: {
+    color: 'white',
+    fontSize: 14,
+  },
+  promoText: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  categories: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  categoryButton: {
+    backgroundColor: '#3e3e3e',
+    padding: 10,
+    borderRadius: 20,
+  },
+  activeCategory: {
+    backgroundColor: '#b5651d',
+  },
+  categoryText: {
+    color: 'white',
+    fontSize: 14,
+  },
+  products: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  productCard: {
+    backgroundColor: '#2c2c2c',
+    borderRadius: 10,
+    padding: 10,
+    width: '48%',
+    marginBottom: 20,
+  },
+  productImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+  },
+  productInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  productTitle: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  productSubtitle: {
+    color: '#888',
+  },
+  productPrice: {
+    color: '#b5651d',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  addToCartButton: {
+    backgroundColor: '#b5651d',
+    borderRadius: 15,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addToCartText: {
+    color: 'white',
+    fontSize: 18,
+  },
+});
